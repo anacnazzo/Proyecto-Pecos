@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Favicon -->
+<link href="../assets/img/brand/favicon.jpg" rel="icon" type="image/jpg">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+	rel="stylesheet">
+<!-- Icons -->
+<link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+<link href="../assets/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- Argon CSS -->
+<link type="text/css" href="../assets/css/argon.css?v=1.0.0"
+	rel="stylesheet">
+<!-- Docs CSS -->
+<link type="text/css" href="../assets/css/docs.min.css" rel="stylesheet">
+<!-- Imagen back -->
+<link type="text/css" href="../assets/css/back.css" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="~{header :: header}"></div>
+	<div class="position-relative">
+		<!-- Hero for FREE version -->
+		<section class="section section-lg section-hero section-shaped">
+
+			<!-- Background circles -->
+			<div class="shape shape-style-1 shape-primary">
+				<span class="span-150"></span> <span class="span-50"></span> <span
+					class="span-50"></span> <span class="span-75"></span> <span
+					class="span-100"></span> <span class="span-75"></span> <span
+					class="span-50"></span> <span class="span-100"></span> <span
+					class="span-50"></span> <span class="span-100"></span>
+			</div>
+			<div
+				class="container shape-container d-flex align-items-center py-lg">
+				<div class="col px-0">
+					<div class="row align-items-center">
+						<div class="col-lg-6 text-center">
+							<h1 class="heading-1 mb-0 text-white" th:text="#{home.titulo1}"></h1>
+							<h2 class="heading-2 mb-0 text-white" th:text="#{home.localidad}"></h2>
+							<div class="btn-wrapper mt-5">
+								<a href="#" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
+									<span class="btn-inner--icon"><i class="fa fa-heart"></i></span>
+									<span class="btn-inner--text" th:text="#{home.quieroadoptar}"></span>
+								</a> <a href="#"
+									class="btn btn-lg btn-default btn-icon mb-3 mb-sm-0"
+									target="_blank"> <span class="btn-inner--icon">
+									<i class="fas fa-coins"></i></span> <span class="btn-inner--text">
+										<span class="text-warning" th:text="#{home.quierocolaborar}"></span>
+								</span>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-6 text-center">
+							<div th:insert="~{carousel :: carousel}"></div>
+						</div>
+						<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+							<div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+							<div class="modal-content">
+								<div th:insert="~{login :: login}"></div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div th:insert="~{quienessomos :: quienessomos}"></div>
+ 
+	<div th:insert="~{contacto :: contacto}"></div>      
+	<div th:insert="~{footer :: footer}"></div>
+
+	<!-- Core -->
+	<script src="../assets/vendor/jquery/jquery.min.js"></script>
+	<script src="../assets/vendor/popper/popper.min.js"></script>
+	<script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="../assets/vendor/headroom/headroom.min.js"></script>
+	<!-- Argon JS -->
+	<script src="../assets/js/argon.js?v=1.0.0"></script>
+</body>
+
+</html>
