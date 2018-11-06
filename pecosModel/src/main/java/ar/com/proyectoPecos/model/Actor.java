@@ -6,11 +6,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACTOR")
 @Inheritance (strategy= InheritanceType.JOINED )
+@PrimaryKeyJoinColumn(name="id")
 public abstract class Actor extends Usuario{
 	
 	@Column(name = "apellido")
