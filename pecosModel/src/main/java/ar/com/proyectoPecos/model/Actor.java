@@ -9,12 +9,22 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Builder;
+import lombok.Value;
+
 @Entity
 @Table(name = "ACTOR")
 @Inheritance (strategy= InheritanceType.JOINED )
 @PrimaryKeyJoinColumn(name="id")
+
+@Value
+@Builder
 public abstract class Actor extends Usuario{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "apellido")
 	private String apellido;
 
@@ -33,6 +43,12 @@ public abstract class Actor extends Usuario{
 	
 	@Column(name = "telefono_movil")
 	private String telefonoMovil;
+	
+	Actor(@JsonProperty("username") String email,
+		       @JsonProperty("password") String password) {
+		super(email, password);
+	}
+
 
 	public String getApellido() {
 		return apellido;

@@ -8,6 +8,10 @@ import javax.persistence.Table;
 @Table(name = "PADRINO")
 @PrimaryKeyJoinColumn(name="id")
 public final class Padrino extends Actor {
-	
 
+	private static final long serialVersionUID = 1L;
+	
+	Padrino(String email, String password) {
+		super(email, password);
+	}
 }

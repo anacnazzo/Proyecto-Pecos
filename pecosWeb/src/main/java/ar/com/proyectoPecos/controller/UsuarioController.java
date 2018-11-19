@@ -1,32 +1,38 @@
 package ar.com.proyectoPecos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import ar.com.proyectoPecos.model.Colaborador;
-import ar.com.proyectoPecos.service.impl.ColaboradorService;
+import ar.com.proyectoPecos.model.Usuario;
+import ar.com.proyectoPecos.service.IUsuarioService;
+import lombok.AllArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import static lombok.AccessLevel.PACKAGE;
+import static lombok.AccessLevel.PRIVATE;
 
-@Controller
-
+@RestController
+@RequestMapping("/public/users")
+@FieldDefaults(level = PRIVATE, makeFinal = true)
+@AllArgsConstructor(access = PACKAGE)
 public class UsuarioController {
-	
 
 	@Autowired
-	private ColaboradorService colaboradorService;
+	IUsuarioService usuarioService;
+	
+	@PostMapping("/register")
+	String register(@RequestParam("username") final String username, @RequestParam("password") final String password) {
+		usuarioService.save(new Usuario(username,password));
 
-
-	@RequestMapping(value = "/saveColaborador", method = RequestMethod.POST)
-	public String create(@ModelAttribute("colaborador") Colaborador colaborador, BindingResult result, SessionStatus status, Model model) {
-
-		colaboradorService.save(colaborador);
-		status.setComplete();
-
-		return "redirect:home";
+		return login(username, password);
 	}
+
+	@PostMapping("/login")
+	String login(@RequestParam("username") final String username, @RequestParam("password") final String password) {
+		return usuarioService.login(username, password)
+				.orElseThrow(() -> new RuntimeException("invalid login and/or password"));
+	}
+
 }
