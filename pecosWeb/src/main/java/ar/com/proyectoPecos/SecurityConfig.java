@@ -32,21 +32,21 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 
 class SecurityConfig extends WebSecurityConfigurerAdapter {
   private static final RequestMatcher PUBLIC_URLS = new OrRequestMatcher(
-    new AntPathRequestMatcher("/public/**")
+    new AntPathRequestMatcher("/templates/public/**")
   );
   private static final RequestMatcher PROTECTED_URLS = new NegatedRequestMatcher(PUBLIC_URLS);
 
-  TokenAuthenticationProvider provider;
+/*	TokenAuthenticationProvider provider;
 
-  SecurityConfig(final TokenAuthenticationProvider provider) {
-    super();
-    this.provider = requireNonNull(provider);
-  }
+	SecurityConfig(final TokenAuthenticationProvider provider) {
+		super();
+		this.provider = requireNonNull(provider);
+	}
 
-  @Override
-  protected void configure(final AuthenticationManagerBuilder auth) {
-    auth.authenticationProvider(provider);
-  }
+	@Override
+	protected void configure(final AuthenticationManagerBuilder auth) {
+		auth.authenticationProvider(provider);
+	}*/
 
   @Override
   public void configure(final WebSecurity web) {
@@ -62,10 +62,10 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
       .exceptionHandling()
       // this entry point handles when you request a protected page and you are not yet
       // authenticated
-      .defaultAuthenticationEntryPointFor(forbiddenEntryPoint(), PROTECTED_URLS)
+/*      .defaultAuthenticationEntryPointFor(forbiddenEntryPoint(), PROTECTED_URLS)*/
       .and()
-      .authenticationProvider(provider)
-      .addFilterBefore(restAuthenticationFilter(), AnonymousAuthenticationFilter.class)
+/*      .authenticationProvider(provider)*/
+/*      .addFilterBefore(restAuthenticationFilter(), AnonymousAuthenticationFilter.class)*/
       .authorizeRequests()
       .requestMatchers(PROTECTED_URLS)
       .authenticated()
@@ -75,7 +75,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
       .httpBasic().disable()
       .logout().disable();
   }
-
+/*
   @Bean
   TokenAuthenticationFilter restAuthenticationFilter() throws Exception {
     final TokenAuthenticationFilter filter = new TokenAuthenticationFilter(PROTECTED_URLS);
@@ -90,11 +90,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     successHandler.setRedirectStrategy(new NoRedirectStrategy());
     return successHandler;
   }
-
+*/
   /**
    * Disable Spring boot automatic filter registration.
    */
-  @Bean
+/*  @Bean
   FilterRegistrationBean<TokenAuthenticationFilter> disableAutoRegistration(final TokenAuthenticationFilter filter) {
     final FilterRegistrationBean<TokenAuthenticationFilter> registration = new FilterRegistrationBean<TokenAuthenticationFilter>(filter);
     registration.setEnabled(false);
@@ -104,5 +104,5 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Bean
   AuthenticationEntryPoint forbiddenEntryPoint() {
     return new HttpStatusEntryPoint(FORBIDDEN);
-  }
+  }*/
 }
