@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 	
-	@RequestMapping("/home")
+	@RequestMapping("/public/home")
     public String home() {
 		
-        return "public/home";
+        return "home";
     }
 	
 	@RequestMapping("/")
     public String main() {
 		
-        return "public/home";
+        return "home";
     }
 	
 }
