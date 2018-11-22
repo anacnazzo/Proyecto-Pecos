@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>PECOS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Favicon -->
+<link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
+
+<!-- Fonts -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700}">
+
+<!-- Icons -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{../assets/vendor/nucleo/css/nucleo.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{../assets/vendor/font-awesome/css/font-awesome.min.css}">
+
+<!-- Argon CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{../assets/css/argon.css?v=1.0.0}">
+<!-- Docs CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{../assets/css/docs.min.css}">
+
+</head>
+<body>
+	<th:block th:replace="fragments/header :: header" />
+	<div class="container">
+		<th:block layout:fragment="content" />
+	</div>
+	<th:block th:replace="fragments/footer :: footer" />
+
+	<!-- Core -->
+	<script src="../assets/vendor/jquery/jquery.min.js"></script>
+	<script src="../assets/vendor/popper/popper.min.js"></script>
+	<script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="../assets/vendor/headroom/headroom.min.js"></script>
+	<!-- Argon JS -->
+	<script src="../assets/js/argon.js?v=1.0.0"></script>
+
+</body>
+
+</html>
