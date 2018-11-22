@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org"
-	layout:decorate="~{fragments/layout}">
+<html th:lang="${#locale.language}" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <body>
-	<div layout:fragment="content" th:remove="tag">
+<div layout:fragment="content" th:remove="tag">
 		<div class="position-relative">
 			<!-- Hero for FREE version -->
 			<section class="section section-lg section-hero section-shaped">

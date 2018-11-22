@@ -31,11 +31,11 @@
 
 </head>
 <body>
-	<th:block th:replace="fragments/header :: header" />
+	<th:block th:replace="header :: header" />
 	<div class="container">
 		<th:block layout:fragment="content" />
 	</div>
-	<th:block th:replace="fragments/footer :: footer" />
+	<th:block th:replace="footer :: footer" />
 
 	<!-- Core -->
 	<script src="../assets/vendor/jquery/jquery.min.js"></script>

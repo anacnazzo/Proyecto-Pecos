@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<html th:lang="${#locale.language}" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <body>
 	<th:block th:fragment="login">
 		<div class="modal-body p-0">
