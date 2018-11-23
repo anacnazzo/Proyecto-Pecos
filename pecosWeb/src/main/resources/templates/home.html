@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}" 
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<html th:lang="${#locale.language}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" 
+	      data-layout-decorate="~{layout}">
 <body>
-<div layout:fragment="content" th:remove="tag">
+	<th:block data-layout-fragment="content" th:remove="tag">
 		<div class="position-relative">
 			<!-- Hero for FREE version -->
 			<section class="section section-lg section-hero section-shaped">
@@ -45,7 +46,7 @@ xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 								<div class="modal-dialog modal- modal-dialog-centered modal-sm"
 									role="document">
 									<div class="modal-content">
-										<div th:insert="~{login :: login}"></div>
+										
 									</div>
 								</div>
 							</div>
