@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org" >
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <body>
-	<div th:fragment="header">
+	<th:block th:fragment="header">
 		<header class="header-global">
 			<nav id="navbar-main"
 				class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
 				<div class="container">
-					<h3 class="heading-title text-warning mb-0" th:text="#{header.titulo}"></h3>
+					<h3 class="heading-title text-warning mb-0"
+						th:text="#{header.titulo}"></h3>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbar_global" aria-controls="navbar_global"
 						aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +19,7 @@
 						<div class="navbar-collapse-header">
 							<div class="row">
 								<div class="col-6 collapse-brand">
-									<a href="./index.html">
-									</a>
+									<a href="./index.html"> </a>
 								</div>
 								<div class="col-6 collapse-close">
 									<button type="button" class="navbar-toggler"
@@ -31,28 +31,28 @@
 								</div>
 							</div>
 						</div>
-				
+
 						<ul class="navbar-nav align-items-lg-center ml-lg-auto">
 							<li class="nav-item"><a class="nav-link"
 								href="#quienessomos" th:text="#{header.quienessomos}"></a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="#contacto" th:text="#{header.contacto}" ></a></li>
-							<li class="nav-item"><a class="nav-link"
-								data-toggle="modal" data-target="#modal-registro" th:text="#{header.registrarse}"></a>
-								</li>
-							<li class="nav-item"><a class="nav-link"
-								data-toggle="modal" data-target="#modal-login" th:text="#{header.login}"></a>
-								</li>
-								
-							 <li class="nav-item">
-							 	<a target="_blank" href="https://www.facebook.com/PerrosComunitariosSantaFe/" 
-							 	class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip" 
-							 	data-original-title="Like us"><i class="fa fa-facebook-square"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="#contacto"
+								th:text="#{header.contacto}"></a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="modal"
+								data-target="#modal-registro" th:text="#{header.registrarse}"></a>
+							</li>
+							<li class="nav-item"><a class="nav-link" data-toggle="modal"
+								data-target="#modal-login" th:text="#{header.login}"></a></li>
+
+							<li class="nav-item"><a target="_blank"
+								href="https://www.facebook.com/PerrosComunitariosSantaFe/"
+								class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg"
+								data-toggle="tooltip" data-original-title="Like us"><i
+									class="fa fa-facebook-square"></i></a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</header>
-	</div>
+	</th:block>
 </body>
 </html>

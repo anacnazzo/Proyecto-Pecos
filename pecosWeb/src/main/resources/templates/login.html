@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org" >
+<html th:lang="${#locale.language}" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
 <head>
-<title></title>
+<title>LOGIN</title>
 </head>
 <body>
-	<div th:fragment="login" >
-
+	<div layout:fragment="content" th:remove="tag">
+	
 				<div class="modal-body p-0">
 					<div class="card bg-secondary shadow border-0">
 						<div class="card-body px-lg-5 py-lg-5">
