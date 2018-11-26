@@ -29,4 +29,14 @@ public class UsuarioController {
 
 		return "redirect:home";
 	}
+	
+	@RequestMapping("/login")
+	public String login() {
+
+		
+
+		return "login";
+	}
+	
+	
 }

@@ -1,58 +1,18 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org" >
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
 <body>
 	<div th:fragment="header">
-		<header class="header-global">
-			<nav id="navbar-main"
-				class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
-				<div class="container">
-					<h3 class="heading-title text-warning mb-0" th:text="#{header.titulo}"></h3>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#navbar_global" aria-controls="navbar_global"
-						aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="navbar-collapse collapse" id="navbar_global">
-						<div class="navbar-collapse-header">
-							<div class="row">
-								<div class="col-6 collapse-brand">
-									<a href="./index.html">
-									</a>
-								</div>
-								<div class="col-6 collapse-close">
-									<button type="button" class="navbar-toggler"
-										data-toggle="collapse" data-target="#navbar_global"
-										aria-controls="navbar_global" aria-expanded="false"
-										aria-label="Toggle navigation">
-										<span></span> <span></span>
-									</button>
-								</div>
-							</div>
-						</div>
+		<div class="panel-header">
+			<div class="header text-center">
+
+				<h2 class="heading-2 mb-0 text-white title" th:text="#{header.titulo1}"></h2>
+				<h3 class="heading-3 mb-0 text-white title" th:text="#{header.localidad}"></h3>
 				
-						<ul class="navbar-nav align-items-lg-center ml-lg-auto">
-							<li class="nav-item"><a class="nav-link"
-								href="#quienessomos" th:text="#{header.quienessomos}"></a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="#contacto" th:text="#{header.contacto}" ></a></li>
-							<li class="nav-item"><a class="nav-link"
-								data-toggle="modal" data-target="#modal-registro" th:text="#{header.registrarse}"></a>
-								</li>
-							<li class="nav-item"><a class="nav-link"
-								data-toggle="modal" data-target="#modal-login" th:text="#{header.login}"></a>
-								</li>
-								
-							 <li class="nav-item">
-							 	<a target="_blank" href="https://www.facebook.com/PerrosComunitariosSantaFe/" 
-							 	class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip" 
-							 	data-original-title="Like us"><i class="fa fa-facebook-square"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
