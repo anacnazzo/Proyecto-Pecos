@@ -4,15 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<div th:fragment="header">
+	<th:block th:fragment="header">
 		<div class="panel-header">
 			<div class="header text-center">
 
-				<h2 class="heading-2 mb-0 text-white title" th:text="#{header.titulo1}"></h2>
-				<h3 class="heading-3 mb-0 text-white title" th:text="#{header.localidad}"></h3>
-				
+				<h2 class="heading-2 mb-0 text-white title"
+					th:text="#{header.titulo1}"></h2>
+				<h3 class="heading-3 mb-0 text-white title"
+					th:text="#{header.localidad}"></h3>
+
 			</div>
 		</div>
-	</div>
+	</th:block>
 </body>
 </html>

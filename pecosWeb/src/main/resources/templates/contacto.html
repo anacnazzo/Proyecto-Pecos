@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org" >
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <body>
-	<div th:fragment="contacto" >
-		<section class="section section-lg section-hero section-shaped" id="contacto">
+	<div th:fragment="contacto">
+		<section class="section section-lg section-hero section-shaped"
+			id="contacto">
 			<div
 				class="container shape-container d-flex align-items-center py-lg">
 				<div class="col px-0">
@@ -13,7 +14,8 @@
 							<div class="form-area">
 								<form role="form">
 									<br style="clear: both">
-									<h5 class="display-5 text-primary" th:text="#{contacto.contactanos}"></h5>
+									<h5 class="display-5 text-primary"
+										th:text="#{contacto.contactanos}"></h5>
 									<div class="form-group">
 										<input type="text" class="form-control" id="name" name="name"
 											placeholder="Name" required>
@@ -37,13 +39,13 @@
 									</div>
 
 									<button type="button" id="submit" name="submit"
-										class="btn btn-primary pull-right " th:text="#{contacto.enviar}"></button>
+										class="btn btn-primary pull-right "
+										th:text="#{contacto.enviar}"></button>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</section>
 	</div>
