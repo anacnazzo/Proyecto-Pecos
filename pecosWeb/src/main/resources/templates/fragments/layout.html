@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html th:lang="${#locale.language}"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org"
-	layout:decorate="~{fragments/layout}">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>PECOS</title>
 <meta charset="utf-8" />
@@ -29,7 +28,9 @@
 
 		<th:block th:replace="~{fragments/nav-bar :: nav-bar}"></th:block>
 		<th:block th:replace="~{fragments/header :: header}"></th:block>
-		<th:block layout:fragment="content" />
+		<div class="content">
+			<div layout:fragment="page_content"></div>
+		</div>
 		<th:block th:replace="~{fragments/footer :: footer}"></th:block>
 
 	</div>

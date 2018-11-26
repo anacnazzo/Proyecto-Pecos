@@ -7,16 +7,14 @@
 
 </head>
 
-<body class="">
-	<div layout:fragment="content" th:remove="tag">
+<body>
+	<div layout:fragment="page_content" th:remove="tag">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-						<div class="card-header">
 							<div th:insert="~{quienessomos :: quienessomos}"></div>
 							<div th:insert="~{contacto :: contacto}"></div>
 							
-						</div>
 					</div>
 				</div>
 			</div>
