@@ -5,32 +5,31 @@
 </head>
 <body>
 	<th:block th:fragment="side-bar">
-		<div class="wrapper">
-			<div class="sidebar" data-color="orange">
-				<!--
+
+		<div class="sidebar" data-color="orange">
+			<!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-				<div class="logo">
-					<a href="#" class="simple-text logo-mini"
-						th:text="#{side-bar.titulo}"> </a> <a href="#"
-						class="simple-text logo-normal" th:text="#{side-bar.titulo1}"></a>
-				</div>
-				<div class="sidebar-wrapper">
-					<ul class="nav">
-						<li><a href="../examples/dashboard.html"
-							th:text="#{side-bar.mascotas}"> <i
-								class="now-ui-icons design_app"></i>
-						</a></li>
-						<li><a href="../examples/icons.html"
-							th:text="#{side-bar.usuarios}"> <i
-								class="now-ui-icons education_atom"></i>
-						</a></li>
-						<li class="active"><a href="../examples/map.html"
-							th:text="#{side-bar.fichas}"> <i
-								class="now-ui-icons location_map-big"></i>
-						</a>
-					</ul>
-				</div>
+			<div class="logo">
+				<a href="#" class="simple-text logo-mini"
+					th:text="#{side-bar.titulo}"> </a> <a href="#"
+					class="simple-text logo-normal" th:text="#{side-bar.titulo1}"></a>
+			</div>
+			<div class="sidebar-wrapper">
+				<ul class="nav">
+					<li><a href="../examples/dashboard.html"
+						th:text="#{side-bar.mascotas}"> <i
+							class="now-ui-icons design_app"></i>
+					</a></li>
+					<li><a href="../examples/icons.html"
+						th:text="#{side-bar.usuarios}"> <i
+							class="now-ui-icons education_atom"></i>
+					</a></li>
+					<li class="active"><a href="../examples/map.html"
+						th:text="#{side-bar.fichas}"> <i
+							class="now-ui-icons location_map-big"></i>
+					</a>
+				</ul>
 			</div>
 		</div>
 	</th:block>

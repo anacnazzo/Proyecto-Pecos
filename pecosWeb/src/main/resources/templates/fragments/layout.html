@@ -21,18 +21,18 @@
 <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
 
 </head>
-<body>
-	<th:block th:replace="~{fragments/side-bar :: side-bar}"></th:block>
+<body class="">
+	<div class="wrapper">
+		<th:block th:replace="~{fragments/side-bar :: side-bar}"></th:block>
+		<div class="main-panel">
+			<th:block th:replace="~{fragments/nav-bar :: nav-bar}"></th:block>
+			<th:block th:replace="~{fragments/header :: header}"></th:block>
 
-	<div class="main-panel">
-
-		<th:block th:replace="~{fragments/nav-bar :: nav-bar}"></th:block>
-		<th:block th:replace="~{fragments/header :: header}"></th:block>
-		<div class="content">
-			<div layout:fragment="page_content"></div>
+			<div class="content">
+				<div layout:fragment="page_content"></div>
+			</div>
+			<th:block th:replace="~{fragments/footer :: footer}"></th:block>
 		</div>
-		<th:block th:replace="~{fragments/footer :: footer}"></th:block>
-
 	</div>
 
 </body>
