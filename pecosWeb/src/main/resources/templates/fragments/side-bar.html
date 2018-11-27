@@ -17,18 +17,22 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li><a href="../examples/dashboard.html"
-						th:text="#{side-bar.mascotas}"> <i
-							class="now-ui-icons design_app"></i>
-					</a></li>
-					<li><a href="../examples/icons.html"
-						th:text="#{side-bar.usuarios}"> <i
-							class="now-ui-icons education_atom"></i>
-					</a></li>
-					<li class="active"><a href="../examples/map.html"
-						th:text="#{side-bar.fichas}"> <i
-							class="now-ui-icons location_map-big"></i>
-					</a>
+					<li class="active"><a th:href="@{'/home/'}">
+						<i class="now-ui-icons shopping_shop"></i> 
+						<label th:text="#{side-bar.home}"></label></a>
+					</li>
+					<li><a th:href="@{'/home/'}"> 
+						<i class="now-ui-icons ui-2_favourite-28"></i>
+						<label th:text="#{side-bar.mascotas}"></label></a>
+					</li>
+					<li><a th:href="@{'/home/'}">
+						<i class="now-ui-icons users_single-02"></i>
+						<label th:text="#{side-bar.usuarios}"></label></a>
+					</li>
+					<li><a th:href="@{'/home/'}">
+						<i class="now-ui-icons files_box"></i>
+						<label th:text="#{side-bar.fichas}"></label></a>
+					</li>	
 				</ul>
 			</div>
 		</div>
