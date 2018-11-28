@@ -12,5 +12,9 @@ public class UsuarioController {
 		return "login";
 	}
 	
+	@RequestMapping("/registro")
+	public String registro() {
+		return "registro";
+	}
 	
 }

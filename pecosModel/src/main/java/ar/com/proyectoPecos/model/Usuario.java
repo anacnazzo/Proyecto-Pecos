@@ -1,5 +1,7 @@
 package ar.com.proyectoPecos.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +28,12 @@ public abstract class Usuario {
 
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "validez_desde")
+	private Date validezDesde;
+	
+	@Column(name = "validez_hasta")
+	private Date validezHasta;
 
 	public Integer getId() {
 		return id;
@@ -50,7 +58,28 @@ public abstract class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Date getValidezDesde() {
+		return validezDesde;
+	}
+
+	public void setValidezDesde(Date validezDesde) {
+		this.validezDesde = validezDesde;
+	}
+
+	public Date getValidezHasta() {
+		return validezHasta;
+	}
+
+	public void setValidezHasta(Date validezHasta) {
+		this.validezHasta = validezHasta;
+	}
 	
-	
+	public boolean enabled(Date hoy) {
+		if ((hoy.compareTo(validezDesde) >= 0 ) && (hoy.compareTo(validezHasta) <= 0)){
+			return true;
+		}
+		return false;
+	}
 
 }
