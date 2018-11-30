@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<body>
+	<div th:fragment="paginacion">
+		<div class="row justify-content-md-center">
+			<!-- Una sola página -->
+			<div th:if="${PAGINA == 1 && PAGINAS > 1}"
+				class="form-group col-md-11 pagination-centered">
+				<ul class="pagination">
+
+					<li class="previous disabled"><a href="#">Anterior  </a></li>
+					<li ></li>
+					<li class="next"><a
+						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA+1}">Siguiente</a></li>
+				</ul>
+			</div>
+			<!-- Página intermedia -->
+			<div th:if="${PAGINA > 1 && PAGINAS > 1 && PAGINA != PAGINAS}"
+				class="form-group col-md-11 pagination-centered">
+				<ul class="pagination">
+
+					<li class="previous"><a
+						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA-1}">Anterior   </a></li>
+					<li class="next"><a
+						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA+1}">Siguiente</a></li>
+				</ul>
+			</div>
+
+			<!-- Última página -->
+			<div th:if="${PAGINAS > 1 && PAGINA == PAGINAS}"
+				class="form-group col-md-11 pagination-centered">
+				<ul class="pagination">
+					<li class="previous"><a
+						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA-1}">Anterior</a></li>
+					<li class="next disabled"><a
+						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA+1}">Siguiente</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<title th:text="#{usuarios.listar.titulo}"></title>
+</head>
+<body class="">
+	<div layout:fragment="page_content" th:remove="tag">
+		<div class="card">
+			<div class="card-header mt-3">
+				<h4 class="card-title" th:text="#{usuarios.listar.titulo}"></h4>
+				<div class="row justify-content-md-center">
+					<form class="form-inline">
+						<input type="text" value="" class="form-control mr-3"
+							placeholder="Buscar...">
+						<button type="button"
+							class="btn btn-round btn-icon btn-info btn-icon-mini mr-3"
+							data-toggle="tooltip" th:title="#{lista.buscar}">
+							<i class="now-ui-icons ui-1_zoom-bold"></i>
+						</button>
+						<button type="button"
+							class="btn btn-round btn-icon btn-primary btn-icon-mini mr-3"
+							data-toggle="tooltip" th:title="#{lista.crear}">
+							<i class="now-ui-icons ui-1_simple-add"></i>
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table">
+						<thead class=" text-primary">
+							<tr>
+								<th hidden=true th:text="#{usuarios.listar.id}"></th>
+								<th th:text="#{usuarios.listar.email}"></th>
+								<th th:text="#{usuarios.listar.validezDesde}"></th>
+								<th th:text="#{usuarios.listar.validezHasta}"></th>
+								<th class="text-right" th:text="#{usuarios.listar.opciones}"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="usuario : ${usuarios}">
+								<td hidden=true th:text="${usuario.id}"></td>
+								<td th:text="${usuario.email}"></td>
+								<td
+									th:text="${#dates.format(usuario.validezDesde, 'dd-MM-yyyy')}"></td>
+								<td
+									th:text="${#dates.format(usuario.validezHasta, 'dd-MM-yyyy')}"></td>
+								<td class="td-actions text-right">
+									<button type="button" 
+										class="btn btn-info btn-sm btn-icon" data-toggle="tooltip" 
+										th:title="#{lista.modificar}">
+										<i class="now-ui-icons users_single-02" ></i>
+									</button>
+									<button type="button" 
+										class="btn btn-success btn-sm btn-icon"  data-toggle="tooltip"
+										th:title="#{lista.limitar}">
+										<i class="now-ui-icons ui-2_settings-90"></i>
+									</button>
+									<button type="button" 
+										class="btn btn-warning btn-sm btn-icon"  data-toggle="tooltip" 
+										th:title="#{lista.eliminar}">
+										<i class="now-ui-icons ui-1_simple-remove"></i>
+									</button>
+									<button type="button" 
+										class="btn btn-primary btn-sm btn-icon"  data-toggle="tooltip" 
+										th:title="#{lista.roles}">
+										<i class="now-ui-icons ui-1_settings-gear-63"></i>
+									</button>
+							</tr>
+						</tbody>
+						
+					</table>
+					<div th:insert="~{fragments/paginacion :: paginacion}"></div>
+							
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
