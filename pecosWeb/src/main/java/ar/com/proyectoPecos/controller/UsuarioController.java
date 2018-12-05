@@ -1,5 +1,7 @@
 package ar.com.proyectoPecos.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -7,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ar.com.proyectoPecos.model.Colaborador;
 import ar.com.proyectoPecos.service.impl.UsuarioService;
 
 @Controller
@@ -34,6 +37,13 @@ public class UsuarioController {
 	@RequestMapping("/usuarios")
 	public String listar(@RequestParam(value = "pagina",  required=false) Integer pagina, Model model) {
 		
+		Colaborador colaborador = new Colaborador();
+		colaborador.setEmail("anacnazzo@gmail.com");
+		colaborador.setPassword("123456");
+		colaborador.setValidezDesde(new Date());
+		colaborador.setValidezHasta(new Date());
+		usuarioService.save(colaborador);
+		
 		pagina = pagina==null?PAGINA_1:pagina;
 		
 		model.addAttribute("usuarios", usuarioService.findAll(pagina, TAMANIO_PAGINA));
@@ -51,7 +61,6 @@ public class UsuarioController {
 
 	@RequestMapping("/usuarios/editar")
 	public String editar(@RequestParam("id") Integer id, Model model) {
-		
 
 		return "usuarios/editar";
 	}

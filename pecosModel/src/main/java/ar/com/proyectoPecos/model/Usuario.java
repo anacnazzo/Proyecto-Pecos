@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,10 +12,19 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "USUARIO")
 @Inheritance (strategy= InheritanceType.JOINED )
+@EntityListeners(AuditingEntityListener.class)
 public abstract class Usuario {
 	
 	@Id
@@ -34,6 +44,24 @@ public abstract class Usuario {
 	
 	@Column(name = "validez_hasta")
 	private Date validezHasta;
+	
+	@Column(name = "created_at", nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreatedDate
+	private Date createdAt;
+	
+	@Column(name = "created_by")
+	@CreatedBy
+	private String createdBy;
+	
+	@Column(name = "modified_at", nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@LastModifiedDate
+	private Date modifiedAt;
+	
+    @Column(name = "modified_by")
+	@LastModifiedBy
+	private String modifiedBy;
 
 	public Integer getId() {
 		return id;
