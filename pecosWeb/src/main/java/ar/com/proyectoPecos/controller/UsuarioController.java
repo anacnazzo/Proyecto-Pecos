@@ -32,18 +32,48 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/usuarios")
-	public String listar(@RequestParam("pagina") Integer pagina, Model model) {
-		model.addAttribute("usuarios", usuarioService.findAll(1, TAMANIO_PAGINA));
+	public String listar(@RequestParam(value = "pagina",  required=false) Integer pagina, Model model) {
+		
+		pagina = pagina==null?PAGINA_1:pagina;
+		
+		model.addAttribute("usuarios", usuarioService.findAll(pagina, TAMANIO_PAGINA));
 
 		// Paginado
 		Integer cantidadRegistros = usuarioService.count();
 		Integer resto = (cantidadRegistros % TAMANIO_PAGINA) == 0 ? 0 : 1;
 		Integer paginas = new Integer(cantidadRegistros / TAMANIO_PAGINA + resto);
-		model.addAttribute("PAGINA", PAGINA_1);
-		model.addAttribute("PAGINAS", paginas);
+		model.addAttribute("pagina", pagina);
+		model.addAttribute("paginas", paginas);
 		model.addAttribute("REFERENCIA_PAGINADO", "/usuarios");
 
 		return "usuarios/listar";
 	}
 
+	@RequestMapping("/usuarios/editar")
+	public String editar(@RequestParam("id") Integer id, Model model) {
+		
+
+		return "usuarios/editar";
+	}
+	
+	@RequestMapping("/usuarios/eliminar")
+	public String eliminar(@RequestParam("id") Integer id, Model model) {
+		
+
+		return "usuarios/eliminar";
+	}
+	
+	@RequestMapping("/usuarios/limitar")
+	public String limitar(@RequestParam("id") Integer id, Model model) {
+		
+
+		return "usuarios/limitar";
+	}
+	
+	@RequestMapping("/usuarios/roles")
+	public String roles(@RequestParam("id") Integer id, Model model) {
+		
+
+		return "usuarios/roles";
+	}
 }

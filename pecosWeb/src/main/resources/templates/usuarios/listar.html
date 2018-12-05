@@ -33,6 +33,7 @@
 					<table class="table">
 						<thead class=" text-primary">
 							<tr>
+
 								<th hidden=true th:text="#{usuarios.listar.id}"></th>
 								<th th:text="#{usuarios.listar.email}"></th>
 								<th th:text="#{usuarios.listar.validezDesde}"></th>
@@ -49,32 +50,40 @@
 								<td
 									th:text="${#dates.format(usuario.validezHasta, 'dd-MM-yyyy')}"></td>
 								<td class="td-actions text-right">
-									<button type="button" 
-										class="btn btn-info btn-sm btn-icon" data-toggle="tooltip" 
-										th:title="#{lista.modificar}">
-										<i class="now-ui-icons users_single-02" ></i>
-									</button>
-									<button type="button" 
-										class="btn btn-success btn-sm btn-icon"  data-toggle="tooltip"
-										th:title="#{lista.limitar}">
-										<i class="now-ui-icons ui-2_settings-90"></i>
-									</button>
-									<button type="button" 
-										class="btn btn-warning btn-sm btn-icon"  data-toggle="tooltip" 
-										th:title="#{lista.eliminar}">
-										<i class="now-ui-icons ui-1_simple-remove"></i>
-									</button>
-									<button type="button" 
-										class="btn btn-primary btn-sm btn-icon"  data-toggle="tooltip" 
-										th:title="#{lista.roles}">
-										<i class="now-ui-icons ui-1_settings-gear-63"></i>
-									</button>
+								<a th:href="@{/usuarios/editar(id=${usuario.id})}">
+										<button type="button"
+											class="btn btn-info btn-round btn-round btn-sm btn-icon"
+											data-toggle="tooltip" th:title="#{lista.editar}">
+											<i class="now-ui-icons ui-2_settings-90"></i>
+										</button>
+								</a> 
+								<a th:href="@{/usuarios/limitar(id=${usuario.id})}">
+										<button type="button"
+											class="btn btn-success btn-round btn-sm btn-icon"
+											data-toggle="tooltip" th:title="#{lista.limitar}">
+											<i class="now-ui-icons ui-1_calendar-60"></i>
+										</button>
+								</a> 
+								<a th:href="@{/usuarios/eliminar(id=${usuario.id})}">
+										<button type="button"
+											class="btn btn-warning  btn-round btn-sm btn-icon"
+											data-toggle="tooltip" th:title="#{lista.eliminar}">
+											<i class="now-ui-icons ui-1_simple-remove"></i>
+										</button>
+								</a> 
+								<a th:href="@{/usuarios/roles(id=${usuario.id})}">
+										<button type="button"
+											class="btn btn-primary btn-round btn-sm btn-icon"
+											data-toggle="tooltip" th:title="#{lista.roles}">
+											<i class="now-ui-icons ui-1_settings-gear-63"></i>
+										</button>
+								</a>
 							</tr>
 						</tbody>
-						
+
 					</table>
 					<div th:insert="~{fragments/paginacion :: paginacion}"></div>
-							
+
 				</div>
 			</div>
 		</div>

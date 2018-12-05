@@ -5,37 +5,42 @@
 <body>
 	<div th:fragment="paginacion">
 		<div class="row justify-content-md-center">
-			<!-- Una sola página -->
-			<div th:if="${PAGINA == 1 && PAGINAS > 1}"
-				class="form-group col-md-11 pagination-centered">
-				<ul class="pagination">
 
-					<li class="previous disabled"><a href="#">Anterior  </a></li>
-					<li ></li>
-					<li class="next"><a
-						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA+1}">Siguiente</a></li>
-				</ul>
-			</div>
-			<!-- Página intermedia -->
-			<div th:if="${PAGINA > 1 && PAGINAS > 1 && PAGINA != PAGINAS}"
-				class="form-group col-md-11 pagination-centered">
+			<div class="form-group pagination-centered">
 				<ul class="pagination">
+					<li hidden=true th:text="${pagina}">
+					<li hidden=true th:text="${paginas}">
+					<li class="previous" th:if="${pagina > 1}" >
+						<a th:href="@{${REFERENCIA_PAGINADO}(pagina=${pagina-1})}">
+							<button type="button" th:classappend="${pagina == 1}? disabled"
+								class="btn btn-primary btn-round btn-sm btn-icon"
+								data-toggle="tooltip" th:title="#{paginacion.anterior}">
+								<i class="now-ui-icons arrows-1_minimal-left"></i>
+							</button>
+						</a>
+					</li>
+					<li class="previous" th:if="${pagina <= 1}">
+							<button type="button"
+								class="btn btn-primary btn-round btn-sm btn-icon disabled"
+								data-toggle="tooltip" th:title="#{paginacion.anterior}">
+								<i class="now-ui-icons arrows-1_minimal-left"></i>
+							</button>
 
-					<li class="previous"><a
-						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA-1}">Anterior   </a></li>
-					<li class="next"><a
-						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA+1}">Siguiente</a></li>
-				</ul>
-			</div>
-
-			<!-- Última página -->
-			<div th:if="${PAGINAS > 1 && PAGINA == PAGINAS}"
-				class="form-group col-md-11 pagination-centered">
-				<ul class="pagination">
-					<li class="previous"><a
-						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA-1}">Anterior</a></li>
-					<li class="next disabled"><a
-						href="${REFERENCIA_PAGINADO}?PAGINA=${PAGINA+1}">Siguiente</a></li>
+					</li>
+					<li class="next" th:if="${pagina >= paginas}">
+							<button	type="button" class="btn btn-primary btn-round btn-sm btn-icon disabled"
+								data-toggle="tooltip" th:title="#{paginacion.siguiente}">
+								<i class="now-ui-icons arrows-1_minimal-right"></i>
+							</button>
+					</li>
+					<li class="next" th:if="${pagina < paginas}">
+						<a th:href="@{${REFERENCIA_PAGINADO}(pagina=${pagina+1})}">
+							<button	type="button"  th:classappend="${pagina == paginas}? disabled"
+								class="btn btn-primary btn-round btn-sm btn-icon"
+								data-toggle="tooltip" th:title="#{paginacion.siguiente}">
+								<i class="now-ui-icons arrows-1_minimal-right"></i>
+							</button></a>
+					</li>
 				</ul>
 			</div>
 		</div>

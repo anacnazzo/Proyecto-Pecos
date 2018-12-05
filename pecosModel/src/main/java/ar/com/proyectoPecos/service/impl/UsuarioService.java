@@ -47,7 +47,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public List<Usuario> findAll(int page, int pageSize) {
-		return usuarioRepository.findAll(PageRequest.of(page, pageSize, Sort.by("email"))).getContent();
+		return usuarioRepository.findAll(PageRequest.of(page-1, pageSize, Sort.by("email"))).getContent();
 		    
 	}
 
