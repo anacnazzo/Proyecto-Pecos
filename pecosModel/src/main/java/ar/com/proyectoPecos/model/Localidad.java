@@ -26,6 +26,10 @@ public class Localidad {
     @JoinColumn(name="provincod")
     private Provincia provincia;
 	
+	@ManyToOne
+    @JoinColumn(name="paiscod")
+    private Pais pais;
+	
 	@Column(name="cp")
     private Integer cp;
 
@@ -61,6 +65,12 @@ public class Localidad {
 		this.cp = cp;
 	}
 	
-	
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
 	
 }

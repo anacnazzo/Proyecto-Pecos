@@ -14,17 +14,18 @@
 				<div class="row justify-content-md-center">
 					<form class="form-inline">
 						<input type="text" value="" class="form-control mr-3"
-							placeholder="Buscar...">
+							th:placeholder="#{lista.buscar}">
 						<button type="button"
 							class="btn btn-round btn-icon btn-info btn-icon-mini mr-3"
 							data-toggle="tooltip" th:title="#{lista.buscar}">
 							<i class="now-ui-icons ui-1_zoom-bold"></i>
 						</button>
-						<button type="button"
+						<a th:href="@{/usuarios/crear}">
+						<button type="button" 
 							class="btn btn-round btn-icon btn-primary btn-icon-mini mr-3"
 							data-toggle="tooltip" th:title="#{lista.crear}">
 							<i class="now-ui-icons ui-1_simple-add"></i>
-						</button>
+						</button></a>
 					</form>
 				</div>
 			</div>

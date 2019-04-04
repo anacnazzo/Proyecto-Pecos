@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<title th:text="#{perfil.titulo}"></title>
+</head>
+<body class="">
+	<div layout:fragment="page_content" th:remove="tag">
+	
+		<div class="row">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="title" th:text="#{perfil.titulo}"></h5>
+					</div>
+					<div class="card-body">
+						 <form action="#" th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+   
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<input type="text" class="form-control"
+											th:field="*{id}" hidden=true>
+									</div>
+									<div class="form-group">
+										<label th:text="#{perfil.apellido}"></label> <input type="text"
+											class="form-control" th:field="*{apellido}">
+									</div>
+								</div>
+								<div class="col-md-7 ">
+									<div class="form-group">
+										<label th:text="#{perfil.nombre}"></label> <input type="text"
+											class="form-control" th:field="*{nombre}">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="exampleInputEmail1" th:text="#{perfil.email}"></label>
+										<input type="email" class="form-control"
+											th:field="*{email}">
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label th:text="#{perfil.tipoDni}"></label> <select
+											id="inputTipo" class="form-control">
+											<option th:each="tipo : ${tiposDni}"
+												th:field="*{idDni}"
+												th:text="${tipo.descripcion}"
+												th:value="${tipo.id}"></option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.dni}"></label> <input type="text"
+											class="form-control" th:field="*{dni}">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.pais}"></label> 
+										<select
+											id="paises" class="form-control" onChange="javascript:crearContenidoLugar('paises')">
+											<option th:each="pais : ${paises}"
+												th:text="${pais.nombre}"
+												th:value="${pais.id}"	
+												th:field="*{idPais}"	
+												>
+											</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.provincia}"></label> 
+										<select
+											id="provincias" class="form-control" onChange="javascript:crearContenidoLugar('provincias')">
+											<option th:each="provincia : ${provincias}"
+												th:text="${provincia.nombre}"
+												th:value="${provincia.id}"
+												th:field="*{idProvincia}">
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.localidad}"></label> 
+										<select
+											id="localidades" class="form-control" onChange="javascript:crearContenidoLugar('localidades')">
+											<option th:each="localidad : ${localidades}"
+												th:text="${localidad.nombre}"
+												th:value="${localidad.id}"
+												th:field="*{idLocalidad}"
+												></option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+											<label th:text="#{perfil.calle}"></label> 
+										<div th:if="${calles == null}">	
+											 <input type="text"
+											class="form-control" id="calle" th:field="*{direccion.calle.id}"	>
+										</div>
+										<div th:unless="${calles == null}">	
+											<select
+												id="calles" class="form-control">
+												<option th:each="calle : ${calles}"
+													th:text="${calle.nombre}"
+													th:value="${calle.id}"
+													th:field="*{idCalle}"
+													></option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.numero}"></label> <input type="text"
+											class="form-control" id="num"
+											th:field="*{numeroCalle}">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.piso}"></label> <input type="text"
+											class="form-control"
+											th:field="*{piso}">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label th:text="#{perfil.depto}"></label> <input type="text"
+											class="form-control"
+											th:field="*{depto}">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label th:text="#{perfil.telefonoFijo}"></label> <input
+											type="text" class="form-control" th:field="*{telefonoFijo}">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label th:text="#{perfil.telefonoMovil}"></label> <input
+											type="text" class="form-control" th:field="*{telefonoMovil}">
+									</div>
+								</div>
+							</div>
+							<!-- <div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label th:text="#{perfil.acercaDeMi}"></label>
+										<textarea rows="4" cols="80" class="form-control"></textarea>
+									</div>
+								</div>
+							</div> -->
+							<div class="row">
+								<div class="col-md-12" align="center">
+									<button type="submit" class="btn btn-primary" th:text="#{perfil.enviar}"></button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- 			<div class="col-md-4">
+				<div class="card card-user">
+					<div class="image">
+						<img src="../assets/img/bg5.jpg" alt="...">
+					</div>
+					<div class="card-body">
+						<div class="author">
+							<a href="#"> <img class="avatar border-gray"
+								src="../assets/img/mike.jpg" alt="...">
+								<h5 class="title"></h5>
+							</a>
+							<p class="description">michael24</p>
+						</div>
+						<p class="description text-center">
+							"Lamborghini Mercy <br> Your chick she so thirsty <br>
+							I'm in that two seat Lambo"
+						</p>
+					</div>
+					<hr>
+					<div class="button-container">
+						<button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+							<i class="fab fa-facebook-f"></i>
+						</button>
+						<button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+							<i class="fab fa-twitter"></i>
+						</button>
+						<button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+							<i class="fab fa-google-plus-g"></i>
+						</button>
+					</div>
+				</div> 
+			</div>-->
+		</div>
+
+	</div>
+</body>
+
+</html>

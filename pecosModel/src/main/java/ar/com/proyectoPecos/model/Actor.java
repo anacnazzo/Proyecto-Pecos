@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -21,6 +22,10 @@ public abstract class Actor extends Usuario{
 	@Column(name = "nombre")
 	private String nombre;
 	
+	@ManyToOne
+    @JoinColumn(name="id_tipo_dni")
+    private TipoDNI tipoDni;
+	
 	@Column(name="dni")
     private Integer dni;
 
@@ -33,6 +38,14 @@ public abstract class Actor extends Usuario{
 	
 	@Column(name = "telefono_movil")
 	private String telefonoMovil;
+	
+	
+
+	public Actor() {
+		super();
+		tipoDni = new TipoDNI();
+		direccion = new Direccion();
+	}
 
 	public String getApellido() {
 		return apellido;
@@ -81,5 +94,15 @@ public abstract class Actor extends Usuario{
 	public void setTelefonoMovil(String telefonoMovil) {
 		this.telefonoMovil = telefonoMovil;
 	}
+
+	public TipoDNI getTipoDni() {
+		return tipoDni;
+	}
+
+	public void setTipoDni(TipoDNI tipoDni) {
+		this.tipoDni = tipoDni;
+	}
+	
+	
 
 }
