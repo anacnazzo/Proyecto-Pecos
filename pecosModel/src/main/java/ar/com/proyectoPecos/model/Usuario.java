@@ -21,90 +21,53 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "USUARIO")
-@Inheritance (strategy= InheritanceType.JOINED )
+@Inheritance(strategy = InheritanceType.JOINED)
 @EntityListeners(AuditingEntityListener.class)
+@Data
 public abstract class Usuario {
-	
+
 	@Id
-	@SequenceGenerator(name="seq-gen",sequenceName="MY_SEQ_GEN",initialValue=205, allocationSize=12)
-	@GeneratedValue(strategy= GenerationType.IDENTITY, generator="seq-gen")
-	@Column(name="\"ID\"",unique=true,nullable=false)
-    private Integer id;
+	@SequenceGenerator(name = "seq-gen", sequenceName = "MY_SEQ_GEN", initialValue = 205, allocationSize = 12)
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "seq-gen")
+	@Column(name = "\"ID\"", unique = true, nullable = false)
+	private Integer id;
 
 	@Column(name = "email")
 	private String email;
 
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "validez_desde")
 	private Date validezDesde;
-	
+
 	@Column(name = "validez_hasta")
 	private Date validezHasta;
-	
+
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
 	private Date createdAt;
-	
+
 	@Column(name = "created_by")
 	@CreatedBy
 	private String createdBy;
-	
+
 	@Column(name = "modified_at", nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
 	private Date modifiedAt;
-	
-    @Column(name = "modified_by")
+
+	@Column(name = "modified_by")
 	@LastModifiedBy
 	private String modifiedBy;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Date getValidezDesde() {
-		return validezDesde;
-	}
-
-	public void setValidezDesde(Date validezDesde) {
-		this.validezDesde = validezDesde;
-	}
-
-	public Date getValidezHasta() {
-		return validezHasta;
-	}
-
-	public void setValidezHasta(Date validezHasta) {
-		this.validezHasta = validezHasta;
-	}
-	
 	public boolean enabled(Date hoy) {
-		if ((hoy.compareTo(validezDesde) >= 0 ) && (hoy.compareTo(validezHasta) <= 0)){
+		if ((hoy.compareTo(validezDesde) >= 0) && (hoy.compareTo(validezHasta) <= 0)) {
 			return true;
 		}
 		return false;

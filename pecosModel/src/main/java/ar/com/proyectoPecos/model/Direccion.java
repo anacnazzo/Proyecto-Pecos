@@ -9,79 +9,32 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "DIRECCION")
+@Data
 public class Direccion {
 
-
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-    private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
 
 	@ManyToOne
-    @JoinColumn(name="id_calle")
-    private Calle calle;
-	
-	@Column(name="numero_calle")
-    private String numeroCalle;
-	
-	@Column(name="piso")
-    private String piso;
-	
-	@Column(name="depto")
-    private String depto;
-		
-	@Column(name="cp")
-    private Integer cp;
+	@JoinColumn(name = "id_calle")
+	private Calle calle;
 
-	public Integer getId() {
-		return id;
-	}
+	@Column(name = "numero_calle")
+	private String numeroCalle;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	@Column(name = "piso")
+	private String piso;
 
-	public Calle getCalle() {
-		return calle;
-	}
+	@Column(name = "depto")
+	private String depto;
 
-	public void setCalle(Calle calle) {
-		this.calle = calle;
-	}
+	@Column(name = "cp")
+	private Integer cp;
 
-	public String getNumeroCalle() {
-		return numeroCalle;
-	}
-
-	public void setNumeroCalle(String numeroCalle) {
-		this.numeroCalle = numeroCalle;
-	}
-
-	public String getPiso() {
-		return piso;
-	}
-
-	public void setPiso(String piso) {
-		this.piso = piso;
-	}
-
-	public String getDepto() {
-		return depto;
-	}
-
-	public void setDepto(String depto) {
-		this.depto = depto;
-	}
-
-	public Integer getCp() {
-		return cp;
-	}
-
-	public void setCp(Integer cp) {
-		this.cp = cp;
-	}
-	
-	
 }

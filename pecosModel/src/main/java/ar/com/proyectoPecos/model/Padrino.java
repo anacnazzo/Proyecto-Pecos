@@ -6,8 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PADRINO")
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 public final class Padrino extends Actor {
-	
 
 }

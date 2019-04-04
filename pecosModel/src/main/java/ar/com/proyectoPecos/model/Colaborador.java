@@ -6,9 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COLABORADOR")
-@PrimaryKeyJoinColumn(name="id")
-public final class Colaborador extends Usuario{
-		
-	
+@PrimaryKeyJoinColumn(name = "id")
+public final class Colaborador extends Usuario {
 
 }

@@ -9,68 +9,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "LOCALIDADES")
+@Data
 public class Localidad {
-	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="localidcod")
-    private Integer id;
-	
-	@Column(name="localidnom")
-    private String nombre;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "localidcod")
+	private Integer id;
+
+	@Column(name = "localidnom")
+	private String nombre;
+
 	@ManyToOne
-    @JoinColumn(name="provincod")
-    private Provincia provincia;
-	
+	@JoinColumn(name = "provincod")
+	private Provincia provincia;
+
 	@ManyToOne
-    @JoinColumn(name="paiscod")
-    private Pais pais;
-	
-	@Column(name="cp")
-    private Integer cp;
+	@JoinColumn(name = "paiscod")
+	private Pais pais;
 
-	public Integer getId() {
-		return id;
-	}
+	@Column(name = "cp")
+	private Integer cp;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Provincia getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
-
-	public Integer getCp() {
-		return cp;
-	}
-
-	public void setCp(Integer cp) {
-		this.cp = cp;
-	}
-	
-	public Pais getPais() {
-		return pais;
-	}
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
-	}
-	
 }

@@ -260,7 +260,7 @@ public class UsuarioController {
 	}
 
 	private UsuarioDTO getUsuarioDTO(Actor actor) {
-		UsuarioDTO usuario = new UsuarioDTO(actor.getId(), actor.getEmail(), actor.getPassword(),
+		/*UsuarioDTO usuario = new UsuarioDTO(actor.getId(), actor.getEmail(), actor.getPassword(),
 				actor.getApellido(), actor.getNombre(), actor.getTipoDni().getId(), actor.getDni(),
 				actor.getDireccion().getCalle().getId(),
 				actor.getDireccion().getCalle().getNombre(), actor.getDireccion().getNumeroCalle(),
@@ -269,7 +269,8 @@ public class UsuarioController {
 				actor.getDireccion().getCalle().getLocalidad().getProvincia().getId(), 
 				actor.getDireccion().getCalle().getLocalidad().getProvincia().getPais().getId(),
 				actor.getTelefonoFijo(), actor.getTelefonoMovil());
-		return usuario;
+		return usuario;*/
+		return null;
 	}
 	
 }

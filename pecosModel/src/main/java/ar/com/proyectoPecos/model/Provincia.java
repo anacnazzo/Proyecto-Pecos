@@ -9,47 +9,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "PROVINCIA")
+@Data
 public class Provincia {
-	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="provincod")
-    private Integer id;
-	
-	@Column(name="provinnom")
-    private String nombre;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "provincod")
+	private Integer id;
+
+	@Column(name = "provinnom")
+	private String nombre;
+
 	@ManyToOne
-    @JoinColumn(name="paiscod")
-    private Pais pais;
+	@JoinColumn(name = "paiscod")
+	private Pais pais;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Pais getPais() {
-		return pais;
-	}
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
-	}
-	
-
-	
 }
