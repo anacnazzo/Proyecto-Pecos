@@ -22,7 +22,6 @@ import ar.com.proyectoPecos.model.Actor;
 import ar.com.proyectoPecos.model.Calle;
 import ar.com.proyectoPecos.model.Colaborador;
 import ar.com.proyectoPecos.model.Localidad;
-import ar.com.proyectoPecos.model.Padrino;
 import ar.com.proyectoPecos.model.Pais;
 import ar.com.proyectoPecos.model.Provincia;
 import ar.com.proyectoPecos.service.impl.CalleService;
@@ -246,7 +245,7 @@ public class UsuarioController {
 	
 	private Colaborador getUsuario(UsuarioDTO actor) {
 		
-		Calle calle = calleService.findById(actor.getIdCalle());
+
 		Colaborador usuario = new Colaborador();
 /*		usuarioactor.getId(), actor.getEmail(), actor.getPassword(),
 				actor.getApellido(), actor.getNombre(), actor.getIdDni(), actor.getDni(),
